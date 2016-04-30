@@ -28,7 +28,7 @@ CTRL-] (right angle bracket) to continue.
 				'ok_container_name':'imiell/git-clone-reset-tutorial:step_4'
 			}
 		)
-		shutit.challenge('''Clone the repo: https://github.com/ianmiell/jenkins-phoenix and move into the jenkins-phoenix folder.
+		shutit.challenge('''Clone this repo: https://github.com/ianmiell/git-clone-reset-tutorial move into the git-clone-reset-tutorial folder.
 ''',
 			'6e778f4feb9b52c05058b5a9f1a492a3',
 			challenge_type='golf',
@@ -43,11 +43,11 @@ CTRL-] (right angle bracket) to continue.
 			}
 		)
 		shutit.challenge(
-			'''Create a folder called /myproject/jenkins-phoenix-clone and move into it. ''',
-			'763444ab57fa9c117159456634396f861',
+			'''Create a folder called /myproject/git-clone-reset-tutorial and move into it. ''',
+			'763444ab57fa9c117159456634396f86',
 			challenge_type='golf',
 			expect_type='md5sum',
-			hints=['mkdir /myproject/jenkins-phoenix-clone && cd /myproject/jenkins-phoenix-clone'],
+			hints=['mkdir /myproject/git-clone-reset-tutorial-clone && cd /myproject/git-clone-reset-tutorial-clone'],
 			congratulations='OK!',
 			follow_on_context={
 				'check_command':'cat <(ls) <(pwd)',
@@ -57,30 +57,30 @@ CTRL-] (right angle bracket) to continue.
 			}
 		)
 		shutit.challenge(
-			'''Now clone the repository from the previous folder (/myproject).''',
-			'1',
+			'''Now clone the repository from the previous folder (/myproject/git-clone-reset-tutorial), and move into the newly-created copy.''',
+			'838c4ec4d8b3a5eaad3b6134f3c03314',
 			challenge_type='golf',
 			expect_type='md5sum',
-			hints=['git clone [dirname]'],
+			hints=['git clone /myproject/git-clone-reset-tutorial && cd git-clone-reset-tutorial'],
 			congratulations='OK!',
 			follow_on_context={
-				'check_command':'',
+				'check_command':'cat <(ls) <(git status) <(cat .git/config | grep -w url)',
 				'context':'docker',
 				'reset_container_name':'imiell/git-clone-reset-tutorial:step_8',
-				'ok_container_name':'imiell/git-clone-reset-tutorial:step_9'
+				'ok_container_name':'imiell/git-clone-reset-tutorial:step_10'
 			}
 		)
 		shutit.challenge(
 			'''Now run rm -rf *. Go on, I dare you!''',
-			'',
+			'6074e2d7436c87ac94159582f178e024',
 			challenge_type='golf',
 			expect_type='md5sum',
 			hints=['rm -rf *'],
 			congratulations='OK!',
 			follow_on_context={
-				'check_command':'cat <(ls) <(pwd)',
+				'check_command':'cat <(ls) <(pwd) <(git status)',
 				'context':'docker',
-				'reset_container_name':'imiell/git-clone-reset-tutorial:step_9',
+				'reset_container_name':'imiell/git-clone-reset-tutorial:step_10',
 				'ok_container_name':'imiell/git-clone-reset-tutorial:step_11'
 			}
 		)

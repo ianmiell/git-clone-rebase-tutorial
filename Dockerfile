@@ -4,17 +4,17 @@ RUN apt-get update && apt-get install -y git lsb-release vim bsdmainutils man-db
 # Step 3 done
 WORKDIR /myproject
 # Step 4 done
-RUN git clone https://github.com/ianmiell/jenkins-phoenix && echo 'git clone https://github.com/ianmiell/jenkins-phoenix && cd /myproject/jenkins-phoenix' >> /root/.bash_history
+RUN git clone https://github.com/ianmiell/git-clone-reset-tutorial && echo 'git clone https://github.com/ianmiell/git-clone-reset-tutorial && cd /myproject/git-clone-reset-tutorial' >> /root/.bash_history
 # Step 5 done
-WORKDIR /myproject/jenkins-phoenix
+WORKDIR /myproject/git-clone-reset-tutorial
 # Step 6 done
-RUN mkdir /myproject/jenkins-phoenix-clone && echo 'mkdir /myproject/jenkins-phoenix-clone && cd /myproject/jenkins-phoenix-clone' >> /root/.bash_history
+RUN mkdir /myproject/git-clone-reset-tutorial-clone && echo 'mkdir /myproject/git-clone-reset-tutorial-clone && cd /myproject/git-clone-reset-tutorial-clone' >> /root/.bash_history
 # Step 7 done
-WORKDIR /myproject/jenkins-phoenix-clone
+WORKDIR /myproject/git-clone-reset-tutorial-clone
 # Step 8 done
-RUN git clone /myproject/jenkins-phoenix && echo 'git clone /myproject/jenkins-phoenix' >> /root/.bash_history
+RUN git clone /myproject/git-clone-reset-tutorial && echo 'git clone /myproject/git-clone-reset-tutorial' >> /root/.bash_history
 # Step 9 done
-WORKDIR /myproject/jenkins-phoenix-clone/jenkins-phoenix
+WORKDIR /myproject/git-clone-reset-tutorial-clone/git-clone-reset-tutorial
 # Step 10 done
 RUN rm -rf * && echo 'rm -rf *' >> /root/.bash_history
 # Step 11 done
