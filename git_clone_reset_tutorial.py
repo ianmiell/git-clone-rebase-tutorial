@@ -43,8 +43,8 @@ CTRL-] (right angle bracket) to continue.
 			}
 		)
 		shutit.challenge(
-			'''Create a folder called /myproject/git-clone-reset-tutorial and move into it. ''',
-			'763444ab57fa9c117159456634396f86',
+			'''Create a folder called /myproject/git-clone-reset-tutorial-clone and move into it. ''',
+			'1d38b5774769d2d582f8c37630013b6f',
 			challenge_type='golf',
 			expect_type='md5sum',
 			hints=['mkdir /myproject/git-clone-reset-tutorial-clone && cd /myproject/git-clone-reset-tutorial-clone'],
@@ -58,7 +58,7 @@ CTRL-] (right angle bracket) to continue.
 		)
 		shutit.challenge(
 			'''Now clone the repository from the previous folder (/myproject/git-clone-reset-tutorial), and move into the newly-created copy.''',
-			'838c4ec4d8b3a5eaad3b6134f3c03314',
+			'98302ef7635896b19319e126d146ad66',
 			challenge_type='golf',
 			expect_type='md5sum',
 			hints=['git clone /myproject/git-clone-reset-tutorial && cd git-clone-reset-tutorial'],
@@ -72,7 +72,7 @@ CTRL-] (right angle bracket) to continue.
 		)
 		shutit.challenge(
 			'''Now run rm -rf *. Go on, I dare you!''',
-			'6074e2d7436c87ac94159582f178e024',
+			'8080dd76e8d1363731040828f88983a6',
 			challenge_type='golf',
 			expect_type='md5sum',
 			hints=['rm -rf *'],
@@ -88,7 +88,7 @@ CTRL-] (right angle bracket) to continue.
 			'''git add your changes ready to commit!
 Then run git status to see what can be committed.
 ''',
-			'1',
+			'19c23679dc326fd54455dcb2996b6436',
 			challenge_type='golf',
 			expect_type='md5sum',
 			hints=['git add .'],
@@ -103,28 +103,47 @@ Then run git status to see what can be committed.
 		shutit.challenge(
 			'''Do a soft git reset, then run git status to see what happened.
 ''',
-			'1',
+			'f04cfe65eca750dcfd949b275db358f6',
 			challenge_type='golf',
 			expect_type='md5sum',
 			hints=['git reset --soft'],
 			congratulations='OK!',
 			follow_on_context={
-				'check_command':'git status -s',
+				'check_command':'cat <(ls) <(git status -s) <(pwd)',
 				'context':'docker',
 				'reset_container_name':'imiell/git-clone-reset-tutorial:step_12',
-				'ok_container_name':'imiell/git-clone-reset-tutorial:step_13'
+				'ok_container_name':'imiell/git-clone-reset-tutorial:step_12'
 			}
 		)
 		shutit.challenge(
-			'''That only took your changes out of the staging area! Your working directory is unchanged. To revert your working directory to its pristine state, do a hard reset. Then run git status to see what happened.
+			'''That didn't do very much at all! 
+A soft reset doesn't do anything other than reset the HEAD to the commit you last checked out.
+It doesn't unstage changes, and doesn't affect your working folders or the git repository itself.
+Now do a standard git reset.
 ''',
-			'1',
+			'2a50327a30bfd9f36183cc42b66fa2c0',
+			challenge_type='golf',
+			expect_type='md5sum',
+			hints=['git reset'],
+			congratulations='OK!',
+			follow_on_context={
+				'check_command':'cat <(ls) <(git status -s) <(pwd)',
+				'context':'docker',
+				'reset_container_name':'imiell/git-clone-reset-tutorial:step_12',
+				'ok_container_name':'imiell/git-clone-reset-tutorial:step_12'
+			}
+		)
+		shutit.challenge(
+			'''That took your changes out of the staging area, but did not affect the files in your working directory at all!
+Your working directory is unchanged. To revert your working directory to its pristine state, do a hard reset. Then run git status to see what happened.
+''',
+			'a60d881b2d0442baacd3b3e0d1e86a1e',
 			challenge_type='golf',
 			expect_type='md5sum',
 			hints=['git reset --hard'],
 			congratulations='OK!',
 			follow_on_context={
-				'check_command':'echo 1',
+				'check_command':'cat <(ls) <(git status -s) <(pwd)',
 				'context':'docker',
 				'reset_container_name':'imiell/git-clone-reset-tutorial:step_13',
 				'ok_container_name':'imiell/git-clone-reset-tutorial:step_14'
