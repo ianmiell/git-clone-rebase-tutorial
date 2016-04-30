@@ -25,63 +25,63 @@ CTRL-] (right angle bracket) to continue.
 				'check_command':'echo 1',
 				'context':'docker',
 				'reset_container_name':'imiell/git-clone-reset-tutorial:step_4',
-				'ok_container_name':'imiell/git-101-tutorial:step_4'
+				'ok_container_name':'imiell/git-clone-reset-tutorial:step_4'
 			}
 		)
 		shutit.challenge('''Clone the repo: https://github.com/ianmiell/jenkins-phoenix and move into the jenkins-phoenix folder.
 ''',
-			'1',
+			'6e778f4feb9b52c05058b5a9f1a492a3',
 			challenge_type='golf',
-			expect_type='',
+			expect_type='md5sum',
 			hints=['Hit CTRL-]'],
 			congratulations='OK!',
 			follow_on_context={
-				'check_command':'',
+				'check_command':'cat <(ls) <(git status) <(pwd)',
 				'context':'docker',
 				'reset_container_name':'imiell/git-clone-reset-tutorial:step_4',
-				'ok_container_name':'imiell/git-101-tutorial:step_6'
+				'ok_container_name':'imiell/git-clone-reset-tutorial:step_6'
 			}
 		)
 		shutit.challenge(
 			'''Create a folder called /myproject/jenkins-phoenix-clone and move into it. ''',
-			'1',
+			'763444ab57fa9c117159456634396f861',
 			challenge_type='golf',
-			expect_type='',
-			hints=['Hit CTRL-]'],
+			expect_type='md5sum',
+			hints=['mkdir /myproject/jenkins-phoenix-clone && cd /myproject/jenkins-phoenix-clone'],
 			congratulations='OK!',
 			follow_on_context={
-				'check_command':'',
+				'check_command':'cat <(ls) <(pwd)',
 				'context':'docker',
 				'reset_container_name':'imiell/git-clone-reset-tutorial:step_6',
-				'ok_container_name':'imiell/git-101-tutorial:step_7'
+				'ok_container_name':'imiell/git-clone-reset-tutorial:step_8'
 			}
 		)
 		shutit.challenge(
-			'''Now clone the repository from the previous folder (/myproject/jenkins-phoenix).''',
+			'''Now clone the repository from the previous folder (/myproject).''',
 			'1',
 			challenge_type='golf',
-			expect_type='',
+			expect_type='md5sum',
 			hints=['git clone [dirname]'],
 			congratulations='OK!',
 			follow_on_context={
 				'check_command':'',
 				'context':'docker',
-				'reset_container_name':'imiell/git-clone-reset-tutorial:step_7',
-				'ok_container_name':'imiell/git-101-tutorial:step_9'
+				'reset_container_name':'imiell/git-clone-reset-tutorial:step_8',
+				'ok_container_name':'imiell/git-clone-reset-tutorial:step_9'
 			}
 		)
 		shutit.challenge(
 			'''Now run rm -rf *. Go on, I dare you!''',
 			'',
 			challenge_type='golf',
-			expect_type='exact',
+			expect_type='md5sum',
 			hints=['rm -rf *'],
 			congratulations='OK!',
 			follow_on_context={
-				'check_command':'ls',
+				'check_command':'cat <(ls) <(pwd)',
 				'context':'docker',
 				'reset_container_name':'imiell/git-clone-reset-tutorial:step_9',
-				'ok_container_name':'imiell/git-101-tutorial:step_11'
+				'ok_container_name':'imiell/git-clone-reset-tutorial:step_11'
 			}
 		)
 		shutit.challenge(
@@ -90,14 +90,14 @@ Then run git status to see what can be committed.
 ''',
 			'1',
 			challenge_type='golf',
-			expect_type='exact',
+			expect_type='md5sum',
 			hints=['git add .'],
 			congratulations='OK!',
 			follow_on_context={
 				'check_command':'git status -s',
 				'context':'docker',
 				'reset_container_name':'imiell/git-clone-reset-tutorial:step_11',
-				'ok_container_name':'imiell/git-101-tutorial:step_12'
+				'ok_container_name':'imiell/git-clone-reset-tutorial:step_12'
 			}
 		)
 		shutit.challenge(
@@ -105,14 +105,14 @@ Then run git status to see what can be committed.
 ''',
 			'1',
 			challenge_type='golf',
-			expect_type='exact',
+			expect_type='md5sum',
 			hints=['git reset --soft'],
 			congratulations='OK!',
 			follow_on_context={
 				'check_command':'git status -s',
 				'context':'docker',
 				'reset_container_name':'imiell/git-clone-reset-tutorial:step_12',
-				'ok_container_name':'imiell/git-101-tutorial:step_13'
+				'ok_container_name':'imiell/git-clone-reset-tutorial:step_13'
 			}
 		)
 		shutit.challenge(
@@ -120,14 +120,14 @@ Then run git status to see what can be committed.
 ''',
 			'1',
 			challenge_type='golf',
-			expect_type='exact',
+			expect_type='md5sum',
 			hints=['git reset --hard'],
 			congratulations='OK!',
 			follow_on_context={
 				'check_command':'echo 1',
 				'context':'docker',
 				'reset_container_name':'imiell/git-clone-reset-tutorial:step_13',
-				'ok_container_name':'imiell/git-101-tutorial:step_14'
+				'ok_container_name':'imiell/git-clone-reset-tutorial:step_14'
 			}
 		)
 		shutit.pause_point('Tutorial complete! Feel free to mess around at the back :)')
