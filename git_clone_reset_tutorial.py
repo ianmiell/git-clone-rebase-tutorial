@@ -30,7 +30,7 @@ CTRL-] (right angle bracket) to continue.
 		)
 		shutit.challenge('''Clone this repo: https://github.com/ianmiell/git-clone-reset-tutorial move into the git-clone-reset-tutorial folder.
 ''',
-			'6e778f4feb9b52c05058b5a9f1a492a3',
+			'3f72901f994d963b000568ce81189a5d',
 			challenge_type='golf',
 			expect_type='md5sum',
 			hints=['Hit CTRL-]'],
@@ -43,7 +43,7 @@ CTRL-] (right angle bracket) to continue.
 			}
 		)
 		shutit.challenge(
-			'''Create a folder called /myproject/git-clone-reset-tutorial-clone and move into it. ''',
+			'''Create a new folder called /myproject/git-clone-reset-tutorial-clone and move into it. ''',
 			'1d38b5774769d2d582f8c37630013b6f',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -57,7 +57,9 @@ CTRL-] (right angle bracket) to continue.
 			}
 		)
 		shutit.challenge(
-			'''Now clone the repository from the previous folder (/myproject/git-clone-reset-tutorial), and move into the newly-created copy.''',
+			'''Now clone the repository from the previous folder (/myproject/git-clone-reset-tutorial), and move into the newly-created copy.
+
+Do not clone from the https address! Clone from the local folder directly.''',
 			'98302ef7635896b19319e126d146ad66',
 			challenge_type='golf',
 			expect_type='md5sum',
@@ -118,10 +120,10 @@ Then run git status to see what can be committed.
 		shutit.challenge(
 			'''That didn't do very much at all! 
 A soft reset doesn't do anything other than reset the HEAD to the commit you last checked out.
-It doesn't unstage changes, and doesn't affect your working folders or the git repository itself.
+It doesn't unstage changes added, and doesn't affect your working folders or the git repository itself.
 Now do a standard git reset.
 ''',
-			'2a50327a30bfd9f36183cc42b66fa2c0',
+			'5686a4f9c4c502cd2df6fbca7dc700e4',
 			challenge_type='golf',
 			expect_type='md5sum',
 			hints=['git reset'],
@@ -130,7 +132,7 @@ Now do a standard git reset.
 				'check_command':'cat <(ls) <(git status -s) <(pwd)',
 				'context':'docker',
 				'reset_container_name':'imiell/git-clone-reset-tutorial:step_12',
-				'ok_container_name':'imiell/git-clone-reset-tutorial:step_12'
+				'ok_container_name':'imiell/git-clone-reset-tutorial:step_14'
 			}
 		)
 		shutit.challenge(
@@ -145,7 +147,7 @@ Your working directory is unchanged. To revert your working directory to its pri
 			follow_on_context={
 				'check_command':'cat <(ls) <(git status -s) <(pwd)',
 				'context':'docker',
-				'reset_container_name':'imiell/git-clone-reset-tutorial:step_13',
+				'reset_container_name':'imiell/git-clone-reset-tutorial:step_14',
 				'ok_container_name':'imiell/git-clone-reset-tutorial:step_14'
 			}
 		)
